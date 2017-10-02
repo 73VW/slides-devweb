@@ -36,3 +36,11 @@ env:
 
 script:
   - LANGUAGE= make ${ACTION}
+
+after_success:
+  - >
+    test "${ACTION}" = "slides" \
+      && test "${TRAVIS_PULL_REQUEST}" = "false" \
+      && test "${TRAVIS_BRANCH}" = "master" \
+      && bash deploy.sh \
+      || echo ":-)"
