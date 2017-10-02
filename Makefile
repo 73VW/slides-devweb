@@ -11,7 +11,7 @@ LANGUAGE ?= fr
 BIB = $(SOURCEDIR)/bibliographie.yaml
 CSL = ens-de-lyon-centre-d-ingenierie-documentaire.csl
 
-CFLAGS += -I include
+CPPFLAGS=-I$HOME/local/include
 
 .PHONY: all
 all: slides pdfs book
