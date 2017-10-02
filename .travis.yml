@@ -12,6 +12,7 @@ addons:
       - librsvg2-bin
       - lmodern
       - make
+      - include
       - pandoc
       - pandoc-citeproc
       - texlive
