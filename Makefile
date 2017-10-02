@@ -11,8 +11,7 @@ LANGUAGE ?= fr
 BIB = $(SOURCEDIR)/bibliographie.yaml
 CSL = ens-de-lyon-centre-d-ingenierie-documentaire.csl
 
-#Bootstrap css
-CDN = '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">'
+CPPFLAGS=-I$HOME/local/include
 
 .PHONY: all
 all: slides pdfs book
@@ -115,8 +114,8 @@ build/book.pdf: build/book.md
 		$^
 
 $(BUILDDIR)/index.html: $(SLIDES)
-	include ../$(TEMPLATES)/indexTop.html > $@
+	include $(TEMPLATES)/indexTop.html > $@
 	echo $(foreach source, $(sort $^), "<li><a class='"btn btn-outline-light"' href='$(source)'>$(subst '\d+[-]', '', $(source))</a></li>") \
 		| sed -e "s/$(BUILDDIR)\///g" \
 		>> $@
-	include ../$(TEMPLATES)/indexTop.html >> $@
+	include $(TEMPLATES)/indexTop.html >> $@

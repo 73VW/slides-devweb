@@ -74,7 +74,10 @@
     */
 
     .masthead {
+        width: 100vw;
         margin-bottom: 2rem;
+        background-color: rgba(255,255,255,0.5);
+        padding-left: 30vw;
     }
 
     .masthead-brand {
@@ -82,7 +85,11 @@
     }
 
     .masthead-brand h3{
-        margin-left: 1vw;
+        float:left;
+    }
+
+    .masthead-brand img{
+        margin-left: 10vw;
         float:right;
     }
 
@@ -147,6 +154,11 @@
     /*
     * Affix and center
     */
+    @media (max-width: 39em) {
+        .masthead{
+            padding-left: 10vw;
+        }
+    }
 
     @media (min-width: 40em) {
         /* Pull out the header and footer */
@@ -163,7 +175,6 @@
             vertical-align: middle;
         }
         /* Handle the widths */
-        .masthead,
         .mastfoot,
         .cover-container {
             width: 100%; /* Must be percentage or pixels for horizontal alignment */
@@ -171,7 +182,6 @@
     }
 
     @media (min-width: 62em) {
-        .masthead,
         .mastfoot,
         .cover-container {
             width: 42rem;
@@ -185,16 +195,16 @@
 
         <div class="site-wrapper-inner">
 
-            <div class="cover-container">
-
-                <div class="masthead clearfix">
-                    <div class="inner">
-                        <div class="masthead-brand">
-                            <img src="https://www.he-arc.ch/sites/www.he-arc.ch/themes/hearc/images/ARC_RGB_Logo_transp.png" width="auto" height="30" class="d-inline-block align-top" alt="">
-                            <h3>Slides Dev Web</h3>
-                        </div>
+            <div class="masthead clearfix">
+                <div class="inner">
+                    <div class="masthead-brand">
+                        <img src="https://www.he-arc.ch/sites/www.he-arc.ch/files/ING/logo_ing.png" width="auto" height="40" class="d-inline-block align-top" alt="">
+                        <h3>Slides Dev Web</h3>
                     </div>
                 </div>
+            </div>
+
+            <div class="cover-container">
                 <div class="inner cover">
                     <h1 class="cover-heading">Fichiers</h1>
                     <ul>
