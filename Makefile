@@ -116,7 +116,7 @@ build/book.pdf: build/book.md
 
 $(BUILDDIR)/index.html: $(SLIDES)
 	echo "<!DOCTYPE html><meta charset=utf-8><title>Slides</title>" > $@
-	echo $(CDN) > $@
+	echo $(CDN) >> $@
 	echo "<h1 class="display-3">Slides</h1><ul>" >> $@
 	echo $(foreach source, $(sort $^), "<li><a class="btn btn-outline-primary" href='$(subst '\d+[-]', '', source)'>$(source)</a>") \
 		| sed -e "s/$(BUILDDIR)\///g" \
