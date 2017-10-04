@@ -28,19 +28,27 @@ before_install:
   - wget https://raw.githubusercontent.com/mreq/xelatex-emoji/master/xelatexemoji-flags.sty
   - sed -i 's/^\(\\usepackage{amsmath}\)/%\1/' xelatexemoji.sty
   - sed -i 's/^\(\\providecommand{\\xelatexemojipath}\)/%\1/' xelatexemoji.sty
+  - >
+    test "${TRAVIS_PULL_REQUEST}" = "false" \
+      && test "${TRAVIS_BRANCH}" = "pdf" \
+      && chmod a+x gitInit.sh \
+      && ./gitInit.sh "${BUILD_FOLDER}" gh-pages \
+      || echo ":-)"
 
 env:
-  - ACTION=slides
-  - ACTION=pdfs
-  - ACTION=book
+  global:
+    - BUILD_FOLDER=build
+  matrix:
+    - ACTION=slides
+    - ACTION=pdfs
+    - ACTION=book
 
 script:
   - LANGUAGE= make ${ACTION}
 
 after_success:
   - >
-    test "${ACTION}" = "slides" \
-      && test "${TRAVIS_PULL_REQUEST}" = "false" \
-      && test "${TRAVIS_BRANCH}" = "style" \
-      && bash deploy.sh \
+    test "${TRAVIS_PULL_REQUEST}" = "false" \
+      && test "${TRAVIS_BRANCH}" = "pdf" \
+      && bash deploy.sh "${BUILD_FOLDER}" \
       || echo ":-)"
