@@ -118,7 +118,7 @@ $(BUILDDIR)/index.html: $(SLIDES)
 			-e "s/[[:digit:]]\+-//g" \
 			-e "s/-/ /g" \
 			-e "s/\b\(.\)/\u\1/g" >> $@; \
-		echo "</a><a href='$(patsubst %.html,%.pdf,$(source))' class='right'>PDF</a><br /><hr></div>" | sed -e "s/$(BUILDDIR)\///g" >> $@;)
+		echo "</a><a href='$(patsubst %.html,%.pdf,$(source))' class='right'>PDF</a><hr></div>" | sed -e "s/$(BUILDDIR)\///g" >> $@;)
 	echo "<a href='book.pdf' class='book'>Livre complet</a>" >> $@
 	cat $(TEMPLATES)/indexBottom.html >> $@
 	cp -r $(SOURCEDIR)/js $(BUILDDIR)
