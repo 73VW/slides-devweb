@@ -1,0 +1,504 @@
+\hypertarget{jquery}{%
+\section{jQuery}\label{jquery}}
+
+\begin{itemize}
+\tightlist
+\item
+  John Resig, 2006
+\item
+  Bibliothèque JS, gratuit, OS (licence MIT)
+\item
+  Facilite le développement JS pour les tâches fréquentes :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Manipulations DOM
+  \item
+    Manipulations CSS
+  \item
+    Réponse aux évenements du navigateur
+  \item
+    Effets visuels et animations
+  \item
+    Requêtes et réponses Ajax
+  \end{itemize}
+\item
+  Abstraction implémentations différents navigateurs
+\item
+  Facile à apprendre
+\item
+  Utilisation du chaînage des méthodes et des callbacks
+\end{itemize}
+
+\hypertarget{utilisation}{%
+\section{Utilisation}\label{utilisation}}
+
+\begin{itemize}
+\tightlist
+\item
+  Inclusion \href{http://jquery.com/download/\#other-cdns}{CDN}
+\end{itemize}
+
+\begin{otherlanguage}{english}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{<}\NormalTok{script src}\OperatorTok{=}\StringTok{"https://code.jquery.com/jquery-3.1.1.min.js"}\OperatorTok{>}\NormalTok{</script}\OperatorTok{>}
+\end{Highlighting}
+\end{Shaded}
+
+\end{otherlanguage}
+
+\begin{itemize}
+\tightlist
+\item
+  Nos scripts
+\end{itemize}
+
+\begin{otherlanguage}{english}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{<}\NormalTok{script src}\OperatorTok{=}\StringTok{"application.js"}\OperatorTok{>}\NormalTok{</script}\OperatorTok{>}
+\end{Highlighting}
+\end{Shaded}
+
+\end{otherlanguage}
+
+\begin{itemize}
+\tightlist
+\item
+  Syntaxe basique
+\end{itemize}
+
+\begin{otherlanguage}{english}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\AttributeTok{$}\NormalTok{(selecteur).}\AttributeTok{action}\NormalTok{()}\OperatorTok{;}      \CommentTok{// $() est un raccourci pour jQuery()}
+\end{Highlighting}
+\end{Shaded}
+
+\end{otherlanguage}
+
+\begin{itemize}
+\tightlist
+\item
+  Utilisation de sélecteurs CSS, id ou classes
+\end{itemize}
+
+\begin{otherlanguage}{english}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\AttributeTok{$}\NormalTok{(document)}\OperatorTok{;}                \CommentTok{// retourne le DOM}
+\AttributeTok{$}\NormalTok{(}\StringTok{"h3"}\NormalTok{).}\AttributeTok{hide}\NormalTok{()}\OperatorTok{;}             \CommentTok{// cache tous les éléments h3}
+\AttributeTok{$}\NormalTok{(}\StringTok{".post"}\NormalTok{)}\OperatorTok{;}                 \CommentTok{// sélectionne les éléments de classe "post"}
+\KeywordTok{var}\NormalTok{ node }\OperatorTok{=} \AttributeTok{$}\NormalTok{(}\StringTok{'<p>New</p>'}\NormalTok{)}\OperatorTok{;} \CommentTok{// un nouveau noeud}
+\end{Highlighting}
+\end{Shaded}
+
+\end{otherlanguage}
+
+\begin{itemize}
+\tightlist
+\item
+  Pour être sûr que le document est chargé :
+\end{itemize}
+
+\begin{otherlanguage}{english}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\AttributeTok{$}\NormalTok{(document).}\AttributeTok{ready}\NormalTok{(}\KeywordTok{function}\NormalTok{()}\OperatorTok{\{}
+    \VariableTok{console}\NormalTok{.}\AttributeTok{log}\NormalTok{(}\StringTok{"prêt!"}\NormalTok{)}
+\OperatorTok{\}}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\end{otherlanguage}
+
+ou
+
+\begin{otherlanguage}{english}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\AttributeTok{$}\NormalTok{(}\KeywordTok{function}\NormalTok{() }\OperatorTok{\{}
+    \VariableTok{console}\NormalTok{.}\AttributeTok{log}\NormalTok{(}\StringTok{"prêt!"}\NormalTok{)}
+\OperatorTok{\}}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\end{otherlanguage}
+
+\begin{otherlanguage}{english}
+
+\end{otherlanguage}
+
+\hypertarget{suxe9lection-dans-le-dom}{%
+\section{Sélection dans le DOM}\label{suxe9lection-dans-le-dom}}
+
+\begin{itemize}
+\tightlist
+\item
+  Sélection
+\end{itemize}
+
+\begin{otherlanguage}{english}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\AttributeTok{$}\NormalTok{(}\StringTok{"h1"}\NormalTok{)}\OperatorTok{;}                        \CommentTok{// noeud élément}
+\AttributeTok{$}\NormalTok{(}\StringTok{"h1"}\NormalTok{).}\AttributeTok{text}\NormalTok{()}\OperatorTok{;}                 \CommentTok{// noeud texte en lecture}
+\end{Highlighting}
+\end{Shaded}
+
+\end{otherlanguage}
+
+\begin{itemize}
+\tightlist
+\item
+  Modification
+\end{itemize}
+
+\begin{otherlanguage}{english}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\AttributeTok{$}\NormalTok{(}\StringTok{"h1"}\NormalTok{).}\AttributeTok{text}\NormalTok{(}\StringTok{"Nouveau Texte"}\NormalTok{)}\OperatorTok{;} \CommentTok{// noeud texte modifié}
+\end{Highlighting}
+\end{Shaded}
+
+\end{otherlanguage}
+
+\begin{itemize}
+\tightlist
+\item
+  Tous les fils (sélecteur descendant)
+\end{itemize}
+
+\begin{otherlanguage}{english}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\AttributeTok{$}\NormalTok{(}\StringTok{"#intro li"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\end{otherlanguage}
+
+\begin{itemize}
+\tightlist
+\item
+  Que les fils directs (sélecteur d'enfants)
+\end{itemize}
+
+\begin{otherlanguage}{english}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\AttributeTok{$}\NormalTok{(}\StringTok{"#intro > li"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\end{otherlanguage}
+
+\begin{itemize}
+\tightlist
+\item
+  Sélecteur multiple
+\end{itemize}
+
+\begin{otherlanguage}{english}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\AttributeTok{$}\NormalTok{(}\StringTok{".post, #main "}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\end{otherlanguage}
+
+\begin{itemize}
+\tightlist
+\item
+  D'autres
+  \href{http://www.w3schools.com/jquery/jquery_selectors.asp}{exemples}
+  de sélecteurs
+\end{itemize}
+
+\hypertarget{parcours-traversing3}{%
+\section{\texorpdfstring{Parcours
+(\href{http://www.w3schools.com/jquery/jquery_traversing.asp}{traversing})}{Parcours (traversing)}}\label{parcours-traversing3}}
+
+\begin{itemize}
+\tightlist
+\item
+  Parcours du DOM dans les trois directions :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Depuis le noeud courant (sélectionné)
+  \item
+    Haut :
+    \begin{otherlanguage}{english}\texttt{parent(),\ parents()}\end{otherlanguage}
+  \item
+    Bas :
+    \begin{otherlanguage}{english}\texttt{children(),\ find()}\end{otherlanguage}
+  \item
+    Frères :
+    \begin{otherlanguage}{english}\texttt{sibling(),\ next(),\ prev()}\end{otherlanguage}
+  \end{itemize}
+\item
+  Filtrage
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \begin{otherlanguage}{english}\texttt{first(),\ last(),\ eq()}\end{otherlanguage}
+  \item
+    \begin{otherlanguage}{english}\texttt{filter(),\ not()}\end{otherlanguage}
+  \item
+    \href{http://www.w3schools.com/jquery/jquery_ref_traversing.asp}{Référence}
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{modifications-de-contenu}{%
+\section{Modifications de contenu}\label{modifications-de-contenu}}
+
+\begin{itemize}
+\tightlist
+\item
+  Accès au contenu :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \begin{otherlanguage}{english}\texttt{text()}\end{otherlanguage} :
+    get/set le texte entre les balises
+  \item
+    \begin{otherlanguage}{english}\texttt{html()}\end{otherlanguage} :
+    get/set l'élément complet (yc balises)
+  \item
+    \begin{otherlanguage}{english}\texttt{val()}\end{otherlanguage} :
+    get/set les valeurs d'un formulaire
+  \item
+    \begin{otherlanguage}{english}\texttt{attr()}\end{otherlanguage} :
+    set la valeur d'un attribut
+  \end{itemize}
+\item
+  Ajout de contenu :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \begin{otherlanguage}{english}\texttt{append(),\ prepend()}\end{otherlanguage}
+    : au début/fin de la sélection (dans l'élément)
+  \item
+    \begin{otherlanguage}{english}\texttt{before(),\ after()}\end{otherlanguage}
+    : avant/après la sélection
+  \end{itemize}
+\item
+  Suppression
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \begin{otherlanguage}{english}\texttt{empty()}\end{otherlanguage} :
+    suppression des enfants
+  \item
+    \begin{otherlanguage}{english}\texttt{remove()}\end{otherlanguage} :
+    supression de la sélection (possibilité de filtrer)
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{accuxe8s-aux-css}{%
+\section{Accès aux CSS}\label{accuxe8s-aux-css}}
+
+\begin{itemize}
+\tightlist
+\item
+  Accès aux classes
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \begin{otherlanguage}{english}\texttt{addClass()}\end{otherlanguage}
+    : ajout de classe(s) à l'élément sélectionné
+  \item
+    \begin{otherlanguage}{english}\texttt{removeClass()}\end{otherlanguage}
+    : suppression de classe(s)
+  \item
+    \begin{otherlanguage}{english}\texttt{toggleClass()}\end{otherlanguage}
+    : suppression si présente, ajout sinon
+  \end{itemize}
+\item
+  Attribut style d'un élément :
+  \begin{otherlanguage}{english}\texttt{css()}\end{otherlanguage}
+\end{itemize}
+
+\begin{otherlanguage}{english}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\AttributeTok{$}\NormalTok{(}\StringTok{"p"}\NormalTok{).}\AttributeTok{css}\NormalTok{(}\StringTok{"background-color"}\NormalTok{)}\OperatorTok{;}                 \CommentTok{// get}
+\AttributeTok{$}\NormalTok{(}\StringTok{"p"}\NormalTok{).}\AttributeTok{css}\NormalTok{(}\OperatorTok{\{}\StringTok{"background-color"}\OperatorTok{:}\StringTok{"yellow"}\OperatorTok{,}\StringTok{"font-size"}\OperatorTok{:}\StringTok{"200%"}\OperatorTok{\}}\NormalTok{)}\OperatorTok{;}   \CommentTok{// set}
+\end{Highlighting}
+\end{Shaded}
+
+\end{otherlanguage}
+
+\hypertarget{evuxe9nements}{%
+\section{Evénements}\label{evuxe9nements}}
+
+\begin{itemize}
+\tightlist
+\item
+  Souris
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \begin{otherlanguage}{english}\texttt{click,\ dblclick,\ mouseenter,\ mouseleave}\end{otherlanguage}
+  \end{itemize}
+\item
+  Clavier
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \begin{otherlanguage}{english}\texttt{keypress,\ keyup,\ keydown}\end{otherlanguage}
+  \end{itemize}
+\item
+  Formulaires
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \begin{otherlanguage}{english}\texttt{submit,\ change,\ focus,\ blur}\end{otherlanguage}
+  \end{itemize}
+\item
+  Document
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \begin{otherlanguage}{english}\texttt{ready,\ load,\ resize,\ scroll,\ unload}\end{otherlanguage}
+  \end{itemize}
+\item
+  Exemple
+\end{itemize}
+
+\begin{otherlanguage}{english}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\AttributeTok{$}\NormalTok{(}\StringTok{"p"}\NormalTok{).}\AttributeTok{click}\NormalTok{(}\KeywordTok{function}\NormalTok{()}\OperatorTok{\{}
+  \CommentTok{// code à éxecuter ici}
+\OperatorTok{\}}\NormalTok{)}\OperatorTok{;} 
+\end{Highlighting}
+\end{Shaded}
+
+\end{otherlanguage}
+
+\hypertarget{ajax11}{%
+\section{\texorpdfstring{\href{http://www.w3schools.com/jquery/jquery_ajax_load.asp}{AJAX}}{AJAX}}\label{ajax11}}
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{otherlanguage}{english}\texttt{\$(selector).load(URL,\ data,\ callback)}\end{otherlanguage}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \begin{otherlanguage}{english}\texttt{URL}\end{otherlanguage} :
+    Ressource ciblée par la requête
+  \item
+    \begin{otherlanguage}{english}\texttt{data}\end{otherlanguage} :
+    éventuel contenu
+  \item
+    \begin{otherlanguage}{english}\texttt{callback}\end{otherlanguage} :
+    fonction de rappel avec 3 paramètres :
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \begin{otherlanguage}{english}\texttt{responseTxt}\end{otherlanguage}
+    \item
+      \begin{otherlanguage}{english}\texttt{statusTxt}\end{otherlanguage}
+    \item
+      \begin{otherlanguage}{english}\texttt{xhr}\end{otherlanguage}
+    \end{itemize}
+  \end{itemize}
+\item
+  \begin{otherlanguage}{english}\texttt{\$.get(URL,\ callback)}\end{otherlanguage}
+\item
+  \begin{otherlanguage}{english}\texttt{\$.post(URL,\ data,\ callback)}\end{otherlanguage}
+\end{itemize}
+
+\hypertarget{effets-et-animations}{%
+\section{Effets et animations}\label{effets-et-animations}}
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{otherlanguage}{english}\texttt{hide(),\ show(),\ toggle()}\end{otherlanguage}
+\item
+  \begin{otherlanguage}{english}\texttt{fadeIn(),\ fadeOut(),\ fadeToggle()}\end{otherlanguage}
+\item
+  \begin{otherlanguage}{english}\texttt{slideDown(),\ slideUp(),\ slideToggle()}\end{otherlanguage}
+\item
+  \href{http://www.w3schools.com/jquery/jquery_animate.asp}{\begin{otherlanguage}{english}\texttt{animate()}\end{otherlanguage}}
+\end{itemize}
+
+\hypertarget{alternatives}{%
+\section{Alternatives}\label{alternatives}}
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{jQuery aussi, ça fait vieux}, YBL 17.10.29
+\item
+  \href{https://gist.github.com/paulirish/12fb951a8b893a454b32}{bling.js}
+\item
+  API
+  \href{https://www.w3schools.com/jsref/met_document_queryselectorall.asp}{queryselectorall()}
+  au lieu des getElementsBy\ldots{}
+\end{itemize}
+
+\hypertarget{ruxe9fuxe9rences}{%
+\section{Références}\label{ruxe9fuxe9rences}}
+
+\begin{itemize}
+\tightlist
+\item
+  Site officiel de \href{http://jquery.com/}{jQuery}
+\item
+  Tutos \href{http://www.w3schools.com/jquery/}{w3schools}
+\item
+  Tutos \href{http://try.jquery.com/}{codeschools}
+\item
+  \href{http://www.javascriptoo.com/sizzle}{SizzleJS} : uniquement les
+  sélecteurs
+\item
+  Comparaison avec \href{http://vanilla-js.com/}{Vanilla JS}
+\end{itemize}
+
+\begin{otherlanguage}{english}
+
+\end{otherlanguage}
+
+\begin{otherlanguage}{english}
+
+\end{otherlanguage}
+
+\begin{otherlanguage}{english}
+
+\end{otherlanguage}
+
+\hypertarget{sources}{%
+\section{Sources}\label{sources}}
